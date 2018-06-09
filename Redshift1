@@ -1,0 +1,23 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+ class Redshift 
+{
+	   public static void main(String args[]) {
+	   		      Connection c = null;
+	      System.out.println("Opened database successfully");
+	      try {
+	         Class.forName("com.amazon.redshift.jdbc4.Driver");
+	         c = DriverManager
+	            .getConnection("jdbc:redshift://immersion-project.cziozxqpyojq.us-west-2.redshift.amazonaws.com:5439/immersion",
+	            "immersion", "Immersion!2016");
+	            System.out.println(c);
+	      } catch (Exception e) {
+	         e.printStackTrace();
+	         System.err.println(e.getClass().getName()+": "+e.getMessage());
+	         System.exit(0);
+	      }
+
+	      System.out.println("Opened database successfully");
+	   }
+}
